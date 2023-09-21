@@ -1,0 +1,38 @@
+spring.application.name: KafkaStreamsDemo
+
+
+## SWAGGER
+springdoc:
+  writer-with-default-pretty-printer: true
+  api-docs:
+    enabled: true
+    path: '/app/api-docs'
+#    groups:
+#      enabled: true
+  show-actuator: false
+  swagger-ui:
+    path: '/app/swagger-ui'
+    configUrl: '/app/api-docs/swagger-config'
+    url: '/app/api-docs'
+    doc-expansion: list
+    operationsSorter: alpha
+    tagsSorter: alpha
+    displayOperationId: true
+    deepLinking: true
+    defaultModelsExpandDepth: 0
+    displayRequestDuration: true
+    filter: true
+    showExtensions: true
+    showCommonExtensions: true
+    syntax-highlight:
+      activated: true
+      theme: agate
+    disable-swagger-default-url: true
+#    groups-order: DESC
+    # group-configs are added programmatically: see MandatorySwaggerConfigurer.java
+    # urls are added programmatically, MANDATORY; declare your @Configuration adding related @Bean: see MandatorySwaggerConfigurer.java
+#    urls:
+#    - 
+#      name: mygroup
+#      display-name: mygroup
+#      url: '/app/api-docs/mygroup'
