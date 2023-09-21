@@ -42,7 +42,8 @@ import net.iubris.kafka_streams_demo.model.MessageValue;
 @Component
 public class StreamsConfigurer {
 
-	public static final String BROKERS = "10.24.160.62:9193";
+	@Value("${brokers}")
+	private String brokers;
 
 	public static final String TOPIC_PREFIX = "biaw_input_";
 
@@ -141,7 +142,7 @@ public class StreamsConfigurer {
 
 	private Properties buildConfig() {
 		Properties config = new Properties();
-		config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, BROKERS);
+		config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, brokers);
 		// TODO use also JsonSerde for default_key_serde ?
 		config.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
 		config.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, JsonSerde.class.getName());

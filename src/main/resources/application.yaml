@@ -1,5 +1,8 @@
 spring.application.name: KafkaStreamsDemo
 
+# comma separated
+brokers: 10.24.160.62:9193
+
 
 ## SWAGGER
 springdoc:
