@@ -30,10 +30,16 @@ public class StreamsService {
 	@Autowired
 	private KafkaTemplate<String, MessageValue> kafkaTemplate;
 
+	/**
+	 * a simple method do send messages to input topics - in parallel
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	public TestResponse execute(final TestRequest request) throws Exception {
 
 		String now = DATETIME_FORMATTER_yyyyMMddHHmmss.format(LocalDateTime.now());
-		log.info("Begin sending {} messages for key:{} ...", () -> request.getToCompleteAt(), () -> now);
+		log.info("Begin sending {} messages for key:{} ...", request::getToCompleteAt, () -> now);
 		CompletableFuture.supplyAsync(() -> {
 			ThreadLocalRandom current = ThreadLocalRandom.current();
 			IntStream

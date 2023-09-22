@@ -31,6 +31,11 @@ public class StreamsController {
 	@Autowired
 	private StreamsService service;
 
+	/**
+	 * a simple API do send messages to input topics - in parallel
+	 * @param request
+	 * @return
+	 */
 	@ApiResponse(responseCode = HTTP_STATUS__FOUND__CODE, content = @Content(schema = @Schema(implementation = TestResponse.class)))
 	@ApiResponse(responseCode = HTTP_STATUS__SERVER_ERROR__CODE, content = @Content(schema = @Schema(implementation = TestResponse.class)))
 	@Operation(tags = "test")
@@ -72,32 +77,6 @@ public class StreamsController {
 
 	private final String HTTP_STATUS__FOUND__CODE = "200";
 
-	/*-
-	private final String HTTP_STATUS__NO_CONTENT__CODE = "204";
-	private final String HTTP_STATUS__NO_CONTENT__DESCRIPTION = "No content found";
-	
-	private final String HTTP_STATUS__BAD_REQUEST__CODE = "400";
-	private final String HTTP_STATUS__BAD_REQUEST__DESCRIPTION = "Bad request";
-	
-	private final String HTTP_STATUS__FORBIDDEN__CODE = "403";
-	private final String HTTP_STATUS__FORBIDDEN__DESCRIPTION = "Forbidden";
-	
-	private final String HTTP_STATUS__NOT_FOUND__CODE = "404";
-	private final String HTTP_STATUS__NOT_FOUND__DESCRIPTION = "Not found";
-	
-	private final String HTTP_STATUS__METHOD_NOT_ALLOWED__CODE = "405";
-	private final String HTTP_STATUS__METHOD_NOT_ALLOWED__DESCRIPTION = "Method not allowed";
-	
-	private final String HTTP_STATUS__REQUEST_TIMEOUT__CODE = "408";
-	private final String HTTP_STATUS__REQUEST_TIMEOUT__DESCRIPTION = "Request timeout";
-	*/
-
 	private final String HTTP_STATUS__SERVER_ERROR__CODE = "500";
-//	private final String HTTP_STATUS__SERVER_ERROR__DESCRIPTION = "Internal server error";
-
-	/*-
-	private final String HTTP_STATUS__SERVICE_UNAVAILABLE__CODE = "503";
-	private final String HTTP_STATUS__SERVICE_UNAVAILABLE__DESCRIPTION = "Service unavailable";
-	*/
 
 }
